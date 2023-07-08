@@ -37,6 +37,26 @@ void toolEquipped(Chef *chef) {
         skill->materialBuff.fish += 10; // 水产售价+10%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
+    
+    if (chef->name == "煎饼") {    // 霞姬霸捣药罐
+        skill->ability.stirfry += 134;
+        skill->ability.boil += 62;
+        skill->ability.knife += 34;
+        skill->ability.fry += 68;
+        skill->ability.bake += 77;
+        skill->ability.steam += 47;
+        chef->tool = NO_TOOL;          // 不允许装备其他厨具
+    }
+
+    if (chef->name == "玄离") {    // 霞姬霸捣药罐
+        skill->ability.stirfry += 65;
+        skill->ability.boil += 105;
+        skill->ability.knife += 84;
+        skill->ability.fry += 36;
+        skill->ability.bake += 30;
+        skill->ability.steam += 60;
+        chef->tool = NO_TOOL;          // 不允许装备其他厨具
+    }
 
     if (chef->name == "龙波儿") {    // 银制水壶
         skill->ability.boil += 80; // 煮技法+80
