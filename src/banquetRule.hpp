@@ -65,7 +65,7 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
      }
      for (int i = d + 3; i < d + 6; i++) {   //第二轮
         if (s.recipe[i]->rarity == 1) {   //一火菜
-            lenientRule[i]->baseRule.buff += 100;  //基础售价%
+            lenientRule[i]->baseRule.directAdd += 300; //基础售价数值
              break; 
          } 
      }
@@ -75,9 +75,9 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
              break; 
          } 
      }
-     if (s.recipe[d + 0]->cookAbility.bake > 0 &&  //烤
-         s.recipe[d + 1]->cookAbility.bake > 0 && 
-         s.recipe[d + 2]->cookAbility.bake > 0) { 
+     if (s.recipe[d + 3]->cookAbility.bake > 0 &&  //烤
+         s.recipe[d + 4]->cookAbility.bake > 0 && 
+         s.recipe[d + 5]->cookAbility.bake > 0) { 
          for (int i = d + 6; i < d + 9; i++) {  //下一阶段
              if (s.recipe[i]->cookAbility.fry > 0) {   //炸
                 strictRule[i]->addRule.buff += 50; //售价
@@ -147,7 +147,7 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
              break; 
          } 
      }
-     for (int i = d + 3; i < d + 6; i++) {   //第二轮
+     for (int i = d + 3; i < d + 5; i++) {   //第二轮
          if (s.recipe[i]->flavor.tasty) {   //鲜
              if (s.recipe[i+1]->flavor.sour) {   //酸
                 lenientRule[i+1]->addRule.buff += 100;  //售价%
@@ -155,7 +155,7 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
              } 
          } 
      }
-     for (int i = d + 3; i < d + 6; i++) {   //第二轮
+     for (int i = d + 3; i < d + 5; i++) {   //第二轮
          if (s.recipe[i]->flavor.spicy) {   //辣
              if (s.recipe[i+1]->flavor.sweet) {  //甜
                 lenientRule[i+1]->addRule.buff += 100;  //售价%
