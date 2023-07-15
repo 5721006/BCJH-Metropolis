@@ -50,9 +50,9 @@ void toolEquipped(Chef *chef) {
 
     if (chef->name == "玄离") {    // 霞姬霸捣药罐
         skill->ability.stirfry += 32;
-        skill->ability.boil += 80;
+        skill->ability.boil += 81;
         skill->ability.knife += 56;
-        skill->ability.fry += 6;
+        skill->ability.fry += 7;
         skill->ability.bake += 5;
         skill->ability.steam += 21;
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
