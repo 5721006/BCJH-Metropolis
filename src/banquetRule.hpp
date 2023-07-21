@@ -146,29 +146,29 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
 
 //第2轮：
 //切：下道料理为辣时基础售价＋50%
-     for (int i = d + 3; i < d + 6; i++) {   //第二轮
+     for (int i = d + 3; i < d + 5; i++) {   //第二轮
         if (s.recipe[i]->cookAbility.knife > 0) {   //切
-             if (s.recipe[i]->flavor.spicy) {   //辣
-                lenientRule[i]->baseRule.buff += 100;  //基础售价%
+             if (s.recipe[i+1]->flavor.spicy) {   //辣
+                lenientRule[i+1]->baseRule.buff += 50;  //基础售价%
                  break; 
              } 
          } 
      }
 //煮：下道料理为酸时基础售价＋200
-     for (int i = d + 3; i < d + 6; i++) {   //第二轮
+     for (int i = d + 3; i < d + 5; i++) {   //第二轮
         if (s.recipe[i]->cookAbility.boil > 0) {   //煮
-         if (s.recipe[i]->flavor.sour) {   //酸
-                lenientRule[i]->baseRule.directAdd += 200; //基础售价数值
+         if (s.recipe[i+1]->flavor.sour) {   //酸
+                lenientRule[i+1]->baseRule.directAdd += 200; //基础售价数值
                  break; 
              } 
          } 
      }
 
 //辣：下道料理为煮时售价＋100%
-     for (int i = d + 3; i < d + 6; i++) {   //第二轮
+     for (int i = d + 3; i < d + 5; i++) {   //第二轮
          if (s.recipe[i]->flavor.spicy) {   //辣
-            if (s.recipe[i]->cookAbility.boil > 0) {   //煮
-                lenientRule[i]->addRule.buff += 100;  //售价%
+            if (s.recipe[i+1]->cookAbility.boil > 0) {   //煮
+                lenientRule[i+1]->addRule.buff += 100;  //售价%
                  break; 
              } 
          } 
@@ -213,5 +213,6 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
 
     return 30; 
  }
+
  
 #endif
