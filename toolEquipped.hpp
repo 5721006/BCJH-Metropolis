@@ -75,15 +75,15 @@ void toolEquipped(Chef *chef) {
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     
-    if (chef->name == "府先生") {    // 精致面包机
-        skill->ability.bake += 80; // 烤技法+80
-        skill->materialBuff.creation += 10; // 面类售价+10%
+    if (chef->name == "府先生") {    // 心声麦克风
+        skill->abilityBuff.knife += 20; // 切售价+20%
+        skill->materialBuff.vegetable += 15; // 菜售价+15%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
 
     if (chef->name == "樊欣") {    // 贵族私家托盘
         skill->ability.bake += 90; // 烤技法+90
-        skill->abilityBuff.knife += 10; // 煮售价+10%
+        skill->abilityBuff.boil += 10; // 煮售价+10%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
 
