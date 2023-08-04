@@ -74,7 +74,7 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
      }
      for (int i = d + 3; i < d + 6; i++) {   //第二轮
         if (s.recipe[i]->rarity == 5) {   //五火菜
-            lenientRule[i]->addRule.buff += 100;  //售价%
+            lenientRule[i]->addRule.buff += -100;  //售价%
              break; 
          } 
      }
@@ -104,7 +104,7 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
      }
      for (int i = d + 6; i < d + 9; i++) {   //第三轮
         if (s.chef[i/3]->skill.ability / s.recipe[i]->cookAbility >= 5) {   //传
-            lenientRule[i]->addRule.full += -3;  //饱腹值
+            lenientRule[i]->addRule.full += 3;  //饱腹值
              break; 
          } 
      }
