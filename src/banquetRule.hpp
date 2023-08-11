@@ -109,23 +109,23 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
              break; 
          } 
      }
-     for (int i = d + 0; i < d + 3; i++) {   //第一轮
-        if (s.chef[i/3]->skill.ability / s.recipe[i]->cookAbility >= 5) {   //传
-            for (int i = d + 3; i < d + 6; i++){
-                if (s.recipe[i]->cookAbility.boil > 0) {   //煮
-                    strictRule[i]->addRule.buff += 100; //售价
-                }
-            }
-        }
+     if (s.chef[ d+0 ]->skill.ability / s.recipe[ d+0 ]->cookAbility >= 5 || 
+         s.chef[ d+1 ]->skill.ability / s.recipe[ d+1 ]->cookAbility >= 5 || 
+         s.chef[ d+2 ]->skill.ability / s.recipe[ d+2 ]->cookAbility >= 5 || ) {   //传
+         for (int i = d + 3; i < d + 6; i++) {  //下一阶段
+             if (s.recipe[i]->cookAbility.boil > 0) {   //煮
+                strictRule[i]->addRule.buff += 100; //售价
+             } 
+         } 
      }
-     for (int i = d + 0; i < d + 3; i++) {   //第一轮
-        if (s.recipe[i]->cookAbility.bake > 0) {   //烤
-            for (int i = d + 3; i < d + 9; i++){
-                if (s.recipe[i]->cookAbility.steam > 0) {   //蒸
-                    strictRule[i]->addRule.full += 2; //饱腹值
-                }
-            }
-        }
+     if (s.recipe[d + 0]->cookAbility.bake > 0 ||  //烤
+         s.recipe[d + 1]->cookAbility.bake > 0 || 
+         s.recipe[d + 2]->cookAbility.bake > 0) { 
+         for (int i = d + 3; i < d + 9; i++) {   //下两阶段
+             if (s.recipe[i]->cookAbility.steam > 0) {   //蒸
+                strictRule[i]->addRule.full += -2; //饱腹值
+             } 
+         } 
      }
      for (int i = d + 3; i < d + 6; i++) {   //第二轮
         if (s.recipe[i]->rarity == 5) {   //五火菜
