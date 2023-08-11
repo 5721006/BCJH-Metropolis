@@ -111,7 +111,7 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
      }
      if (s.chef[ d+0 ]->skill.ability / s.recipe[ d+0 ]->cookAbility >= 5 || 
          s.chef[ d+1 ]->skill.ability / s.recipe[ d+1 ]->cookAbility >= 5 || 
-         s.chef[ d+2 ]->skill.ability / s.recipe[ d+2 ]->cookAbility >= 5 || ) {   //传
+         s.chef[ d+2 ]->skill.ability / s.recipe[ d+2 ]->cookAbility >= 5 ) {   //传
          for (int i = d + 3; i < d + 6; i++) {  //下一阶段
              if (s.recipe[i]->cookAbility.boil > 0) {   //煮
                 strictRule[i]->addRule.buff += 100; //售价
