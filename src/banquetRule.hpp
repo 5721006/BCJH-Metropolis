@@ -123,7 +123,7 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
          s.recipe[d + 2]->cookAbility.bake > 0) { 
          for (int i = d + 3; i < d + 9; i++) {   //下两阶段
              if (s.recipe[i]->cookAbility.steam > 0) {   //蒸
-                strictRule[i]->addRule.full += -2; //饱腹值
+                strictRule[i]->addRule.full += 2; //饱腹值
              } 
          } 
      }
