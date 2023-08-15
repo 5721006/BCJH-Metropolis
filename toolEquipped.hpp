@@ -38,11 +38,6 @@ void toolEquipped(Chef *chef) {
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     
-    if (chef->name == "拉琪") {    // 甜品木托
-        skill->abilityBuff.knife += 10; // 切售价+10%
-        chef->tool = NO_TOOL;          // 不允许装备其他厨具
-    }
-    
     if (chef->name == "煎饼") {    // 霞姬霸捣药罐
         skill->ability.stirfry += 101;
         skill->ability.boil += 37;
