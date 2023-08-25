@@ -38,9 +38,13 @@ void toolEquipped(Chef *chef) {
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     
-    if (chef->name == "橙风") {    // 银锅铲
-        skill->ability.stirfry += 80; // 炒技法+80
-        skill->materialBuff.vegetable += 10; // 蔬菜售价+10%
+    if (chef->name == "橙风") {    // 霞姬霸捣药罐
+        skill->ability.stirfry += 34;
+        skill->ability.boil += 6;
+        skill->ability.knife += 7;
+        skill->ability.fry += 33;
+        skill->ability.bake += 90;
+        skill->ability.steam += 75;
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     
@@ -73,12 +77,6 @@ void toolEquipped(Chef *chef) {
     if (chef->name == "府先生") {    // 心声麦克风
         skill->abilityBuff.knife += 20; // 切售价+20%
         skill->materialBuff.vegetable += 15; // 菜售价+15%
-        chef->tool = NO_TOOL;          // 不允许装备其他厨具
-    }
-
-    if (chef->name == "樊欣") {    // 贵族私家托盘
-        skill->ability.bake += 90; // 烤技法+90
-        skill->abilityBuff.boil += 10; // 煮售价+10%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
 
