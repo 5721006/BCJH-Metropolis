@@ -92,7 +92,7 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
          } 
      }
      for (int i = d + 6; i < d + 9; i++) {   //第三轮
-        if (s.recipe[i]->rarity == 4) {   //四火菜
+        if (s.recipe[i]->rarity == 5) {   //五火菜
             lenientRule[i]->addRule.buff += 100;  //售价%
              break; 
          } 
