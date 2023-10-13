@@ -59,7 +59,7 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
      }
      for (int i = d + 0; i < d + 3; i++) {   //第一轮
          if (s.recipe[i]->flavor.spicy) {   //辣
-            lenientRule[i]->addRule.buff += 100;  //售价%
+            lenientRule[i]->addRule.buff += 50;  //售价%
              break; 
          } 
      }
@@ -78,7 +78,7 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
      }
      for (int i = d + 3; i < d + 6; i++) {   //第二轮
          if (s.recipe[i]->flavor.spicy) {   //辣
-            lenientRule[i]->baseRule.directAdd += 200; //基础售价数值
+            lenientRule[i]->baseRule.directAdd += 150; //基础售价数值
              break; 
          } 
      }
@@ -99,13 +99,13 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
      }
      for (int i = d + 6; i < d + 9; i++) {   //第三轮
          if (s.recipe[i]->flavor.spicy) {   //辣
-            lenientRule[i]->baseRule.buff += 50;  //基础售价%
+            lenientRule[i]->baseRule.buff += 15;  //基础售价%
              break; 
          } 
      }
      for (int i = d + 6; i < d + 9; i++) {   //第三轮
         if (s.recipe[i]->cookAbility.fry > 0) {   //炸
-            lenientRule[i]->addRule.buff += 100;  //售价%
+            lenientRule[i]->addRule.buff += 80;  //售价%
              break; 
          } 
      }
@@ -118,7 +118,7 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
          s.recipe[d + 2]->cookAbility.knife > 0) { 
          for (int i = d + 3; i < d + 6; i++) {  //下一阶段
              if (s.recipe[i]->cookAbility.knife > 0) {   //切
-                strictRule[i]->addRule.buff += 100; //售价
+                strictRule[i]->addRule.buff += 50; //售价
              } 
          } 
      }
@@ -127,7 +127,7 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
          s.recipe[d + 2]->cookAbility.boil > 0) { 
          for (int i = d + 3; i < d + 6; i++) {  //下一阶段
              if (s.recipe[i]->cookAbility.boil > 0) {   //煮
-                strictRule[i]->addRule.buff += 100; //售价
+                strictRule[i]->addRule.buff += 50; //售价
              } 
          } 
      }
@@ -136,13 +136,13 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
          s.recipe[d + 2]->cookAbility.steam > 0) { 
          for (int i = d + 3; i < d + 6; i++) {  //下一阶段
              if (s.recipe[i]->cookAbility.steam > 0) {   //蒸
-                strictRule[i]->addRule.buff += 100; //售价
+                strictRule[i]->addRule.buff += 50; //售价
              } 
          } 
      }
      for (int i = d + 0; i < d + 3; i++) {   //第一轮
          if (s.recipe[i]->flavor.bitter) {   //苦
-            lenientRule[i]->addRule.buff += 100;  //售价%
+            lenientRule[i]->addRule.buff += 60;  //售价%
              break; 
          } 
      }
@@ -154,7 +154,7 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
      }
      for (int i = d + 3; i < d + 6; i++) {   //第二轮
          if (s.recipe[i]->flavor.bitter) {   //苦
-            lenientRule[i]->baseRule.buff += 50;  //基础售价%
+            lenientRule[i]->baseRule.buff += 15;  //基础售价%
              break; 
          } 
      }
@@ -164,16 +164,16 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
              break; 
          } 
      }
-     lenientRule[d + 5]->baseRule.directAdd += 200; //基础售价数值
+     lenientRule[d + 5]->baseRule.directAdd += 100; //基础售价数值
      for (int i = d + 6; i < d + 9; i++) {   //第三轮
          if (s.recipe[i]->flavor.bitter) {   //苦
-            lenientRule[i]->addRule.buff += 100;  //售价%
+            lenientRule[i]->addRule.buff += 50;  //售价%
              break; 
          } 
      }
      for (int i = d + 6; i < d + 9; i++) {   //第三轮
         if (s.recipe[i]->cookAbility.stirfry > 0) {   //炒
-            lenientRule[i]->baseRule.buff += 50;  //基础售价%
+            lenientRule[i]->baseRule.buff += 15;  //基础售价%
              break; 
          } 
      }
@@ -185,6 +185,5 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
      }
      lenientRule[d + 7]->oneMore();  //意图生效次数
     return 32; 
- }
- 
+ } 
 #endif
