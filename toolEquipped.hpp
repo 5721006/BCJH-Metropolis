@@ -36,9 +36,13 @@ void toolEquipped(Chef *chef) {
         skill->abilityBuff.boil += 20; // 煮售价+20%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
-    if (chef->name == "黑柏") {    // 银制剪刀
-        skill->ability.knife += 80; // 切技法+80
-        skill->materialBuff.fish += 10; // 水产售价+10%
+    if (chef->name == "乐乐妹") {    // 霞姬霸捣药罐
+        skill->ability.stirfry += 9;
+        skill->ability.boil += 84;
+        skill->ability.knife += 106;
+        skill->ability.fry += 8;
+        skill->ability.bake += 40;
+        skill->ability.steam += 26;
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "拉琪") {    // 霞姬霸捣药罐
@@ -78,10 +82,6 @@ void toolEquipped(Chef *chef) {
         skill->materialBuff.vegetable += 15; // 菜售价+15%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
-    if (chef->name == "郑国民父女") {    // 金印大碗
-        skill->abilityBuff.fry += 20; // 炸售价+20%
-        chef->tool = NO_TOOL;          // 不允许装备其他厨具
-    }
     if (chef->name == "兰染") {    // 金猫筷子架
         skill->ability.fry += 150; // 炸技法+150
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
@@ -98,25 +98,7 @@ void toolEquipped(Chef *chef) {
         skill->ability.steam += 150; // 蒸技法+150
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
-    if (chef->name == "孙空空") {    // 金色厨巾
-        chef->tool = NO_TOOL;          // 不允许装备其他厨具
-    }
-    if (chef->name == "毛太郎") {    // 传世秘籍
-        skill->ability.add(40); // 全技法+40
-        chef->tool = NO_TOOL;          // 不允许装备其他厨具
-    }
-    if (chef->name == "鼬名人") {    // 银骰子
-        chef->tool = NO_TOOL;          // 不允许装备其他厨具
-    }
     if (chef->name == "蜜桃桃") {    // 银骰子
-        chef->tool = NO_TOOL;          // 不允许装备其他厨具
-    }
-    if (chef->name == "羽十六") {    // 传世秘籍
-        skill->ability.add(40); // 全技法+40
-        chef->tool = NO_TOOL;          // 不允许装备其他厨具
-    }
-    if (chef->name == "珍艾") {    // 传世秘籍
-        skill->ability.add(40); // 全技法+40
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     return; // 以下为示例代码，可自行修改。完成后注释此行。
