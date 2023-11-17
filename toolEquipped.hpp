@@ -38,37 +38,37 @@ void toolEquipped(Chef *chef) {
     }
     if (chef->name == "乐乐妹") {    // 霞姬霸捣药罐
         skill->ability.stirfry += 9;
-        skill->ability.boil += 84;
-        skill->ability.knife += 106;
+        skill->ability.boil += 74;
+        skill->ability.knife += 107;
         skill->ability.fry += 8;
         skill->ability.bake += 40;
         skill->ability.steam += 26;
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "拉琪") {    // 霞姬霸捣药罐
-        skill->ability.stirfry += 8;
+        skill->ability.stirfry += 9;
         skill->ability.boil += 41;
-        skill->ability.knife += 108;
-        skill->ability.fry += 7;
-        skill->ability.bake += 23;
+        skill->ability.knife += 109;
+        skill->ability.fry += 8;
+        skill->ability.bake += 24;
         skill->ability.steam += 60;
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "煎饼") {    // 霞姬霸捣药罐
-        skill->ability.stirfry += 101;
+        skill->ability.stirfry += 102;
         skill->ability.boil += 38;
         skill->ability.knife += 7;
         skill->ability.fry += 39;
-        skill->ability.bake += 53;
+        skill->ability.bake += 54;
         skill->ability.steam += 9;
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "玄离") {    // 霞姬霸捣药罐
-        skill->ability.stirfry += 32;
+        skill->ability.stirfry += 33;
         skill->ability.boil += 82;
         skill->ability.knife += 57;
-        skill->ability.fry += 7;
-        skill->ability.bake += 6;
+        skill->ability.fry += 8;
+        skill->ability.bake += 7;
         skill->ability.steam += 21;
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
@@ -98,7 +98,13 @@ void toolEquipped(Chef *chef) {
         skill->ability.steam += 150; // 蒸技法+150
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
-    if (chef->name == "蜜桃桃") {    // 银骰子
+    if (chef->name == "蜜桃桃") {    // 传世秘籍
+        skill->ability.stirfry += 40;
+        skill->ability.boil += 40;
+        skill->ability.knife += 40;
+        skill->ability.fry += 40;
+        skill->ability.bake += 40;
+        skill->ability.steam += 40;
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     return; // 以下为示例代码，可自行修改。完成后注释此行。
