@@ -36,6 +36,9 @@ void toolEquipped(Chef *chef) {
         skill->abilityBuff.boil += 20; // 煮售价+20%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
+    if (chef->name == "黑柏") {    // 沸海陨
+        skill->abilityBuff.boil += 4; // 煮售价+4%
+    }
     if (chef->name == "乐乐妹") {    // 霞姬霸捣药罐
         skill->ability.stirfry += 9;
         skill->ability.boil += 74;
