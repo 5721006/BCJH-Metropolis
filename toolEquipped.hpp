@@ -27,8 +27,8 @@ void toolEquipped(Chef *chef) {
     }
     if (chef->name == "姒露") {    // 金风扇
         skill->abilityBuff.bake += 30; // 烤类售价+30%
-        skill->abilityBuff.knife += 6; // 切类售价+6%
-        skill->flavorBuff.sweet += 6; // 甜售价+6%
+        skill->abilityBuff.knife += 7; // 切类售价+6%
+        skill->flavorBuff.sweet += 7; // 甜售价+6%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "橙风") {    // 金风扇
