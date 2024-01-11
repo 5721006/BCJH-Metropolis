@@ -1,4 +1,3 @@
-规则文件模板备份
 #ifndef RULE_HPP 
 #define RULE_HPP 
 #include "Calculator.hpp" 
