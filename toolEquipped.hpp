@@ -17,11 +17,7 @@ void toolEquipped(Chef *chef) {
     }
     if (chef->name == "东华") {    // 金塞醒酒壶+月异陨
         skill->abilityBuff.boil += 30; // 煮类售价+30%
-        skill->flavorBuff.tasty += 10; // 鲜售价+10%
-        chef->tool = NO_TOOL;          // 不允许装备其他厨具
-    }
-    if (chef->name == "唐三三") {    // 金塞醒酒壶
-        skill->abilityBuff.boil += 30; // 煮类售价+30%
+        skill->flavorBuff.tasty += 12; // 鲜售价+12%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "玄一") {    // 水晶透明菜罩
