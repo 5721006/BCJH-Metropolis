@@ -35,16 +35,33 @@ void toolEquipped(Chef *chef) {
         skill->abilityBuff.bake += 30; // 烤类售价+30%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
-    if (chef->name == "藻白") {    // 金刚磨刀钢
-        skill->abilityBuff.knife += 20; // 切类售价+20%
-        chef->tool = NO_TOOL;          // 不允许装备其他厨具
-    }  
     if (chef->name == "息夫人") {    // 金玉勺
         skill->abilityBuff.boil += 20; // 煮售价+20%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "黑柏") {    // 沸海陨
+        skill->ability.knife += -50;
+        skill->ability.bake += -50;
+        skill->ability.steam += 200;
         skill->abilityBuff.boil += 4; // 煮售价+4%
+    }
+    if (chef->name == "煎饼") {    // 闪亮夜视镜
+        skill->ability.boil += -50;
+        skill->ability.fry += 200;
+        skill->ability.steam += -50;
+        chef->tool = NO_TOOL;          // 不允许装备其他厨具
+    }
+    if (chef->name == "达浪") {    // 彩色滚筒刷
+        skill->ability.stirfry += 200;
+        skill->ability.fry += -50;
+        skill->ability.bake += -50;
+        chef->tool = NO_TOOL;          // 不允许装备其他厨具
+    }
+    if (chef->name == "藻白") {    // 巧克力生日帽
+        skill->ability.stirfry += 200;
+        skill->ability.boil += -50;
+        skill->ability.bake += -50;
+        chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "乐乐妹") {    // 霞姬霸捣药罐
         skill->ability.stirfry += 11;
@@ -63,15 +80,6 @@ void toolEquipped(Chef *chef) {
         skill->ability.fry += 9;
         skill->ability.bake += 24;
         skill->ability.steam += 60;
-        chef->tool = NO_TOOL;          // 不允许装备其他厨具
-    }
-    if (chef->name == "煎饼") {    // 霞姬霸捣药罐
-        skill->ability.stirfry += 104;
-        skill->ability.boil += 38;
-        skill->ability.knife += 9;
-        skill->ability.fry += 40;
-        skill->ability.bake += 54;
-        skill->ability.steam += 10;
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "玄离") {    // 霞姬霸捣药罐
@@ -110,12 +118,26 @@ void toolEquipped(Chef *chef) {
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "蜜桃桃") {    // 传世秘籍
-        skill->ability.stirfry += 40;
-        skill->ability.boil += 40;
-        skill->ability.knife += 40;
-        skill->ability.fry += 40;
-        skill->ability.bake += 40;
-        skill->ability.steam += 40;
+        skill->ability.add(40);
+        chef->tool = NO_TOOL;          // 不允许装备其他厨具
+    }
+    if (chef->name == "毛太郎") {    // 传世秘籍
+        skill->ability.add(40);
+        chef->tool = NO_TOOL;          // 不允许装备其他厨具
+    }
+    if (chef->name == "鼬名人") {    // 传世秘籍
+        skill->ability.add(40);
+        chef->tool = NO_TOOL;          // 不允许装备其他厨具
+    }
+    if (chef->name == "苍胡颉") {    // 传世秘籍
+        skill->ability.add(40);
+        chef->tool = NO_TOOL;          // 不允许装备其他厨具
+    }
+    if (chef->name == "盐如玉") {    // 传世秘籍
+        skill->ability.add(40);
+        chef->tool = NO_TOOL;          // 不允许装备其他厨具
+    }
+    if (chef->name == "麦田姬") {  
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     return; // 以下为示例代码，可自行修改。完成后注释此行。
