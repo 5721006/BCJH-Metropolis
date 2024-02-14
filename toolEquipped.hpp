@@ -44,6 +44,7 @@ void toolEquipped(Chef *chef) {
         skill->ability.bake += -50;
         skill->ability.steam += 200;
         skill->abilityBuff.boil += 4; // 煮售价+4%
+        chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "煎饼") {    // 闪亮夜视镜
         skill->ability.boil += -50;
@@ -133,8 +134,7 @@ void toolEquipped(Chef *chef) {
         skill->ability.add(40);
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
-    if (chef->name == "盐如玉") {    // 传世秘籍
-        skill->ability.add(40);
+    if (chef->name == "盐如玉") { 
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "麦田姬") {  
