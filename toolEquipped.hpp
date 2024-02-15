@@ -15,9 +15,13 @@ void toolEquipped(Chef *chef) {
         skill->materialBuff.vegetable += 20; // 蔬菜售价+20%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
-    if (chef->name == "东华") {    // 金塞醒酒壶+月异陨
+    if (chef->name == "唐三三") {    // 金塞醒酒壶
         skill->abilityBuff.boil += 30; // 煮类售价+30%
-        skill->flavorBuff.tasty += 12; // 鲜售价+12%
+        chef->tool = NO_TOOL;          // 不允许装备其他厨具
+    }
+    if (chef->name == "东华") {    // 金塞醒酒壶+月异陨*2
+        skill->abilityBuff.boil += 30; // 煮类售价+30%
+        skill->flavorBuff.tasty += 24; // 鲜售价+24%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "玄一") {    // 水晶透明菜罩
@@ -25,10 +29,11 @@ void toolEquipped(Chef *chef) {
         skill->abilityBuff.stirfry += 20; // 炒类售价+20%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
-    if (chef->name == "姒露") {    // 嘻嘻蜡烛+万斩玉+蜜蜜玉
+    if (chef->name == "姒露") {    // 嘻嘻蜡烛+万斩玉+蜜蜜玉+鲸吸陨
         skill->abilityBuff.bake += 30; // 烤类售价+30%
         skill->abilityBuff.knife += 8; // 切类售价+8%
         skill->flavorBuff.sweet += 8; // 甜售价+8%
+        skill->flavorBuff.salty += 12; // 咸售价+12%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "橙风") {    // 嘻嘻蜡烛
