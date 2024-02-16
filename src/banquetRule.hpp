@@ -106,7 +106,7 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
              break; 
          } 
      }
-     for (int i = d + 0; i < d + 6; i++) { 
+     for (int i = d + 0; i < d + 9; i++) { 
          if (s.chef[i]->name == "藻白") {    // 藻白下位+10%基售
              lenientRule[i+3]->baseRule.buff += 10; 
          } 
@@ -215,7 +215,7 @@ int banquetRule1(BanquetStrictRule **strictRule, BanquetLenientRule **lenientRul
              break; 
          } 
      }
-     for (int i = d + 0; i < d + 6; i++) { 
+     for (int i = d + 0; i < d + 9; i++) { 
          if (s.chef[i]->name == "藻白") {    // 藻白下位+10%基售
              lenientRule[i+3]->baseRule.buff += 10; 
          } 
