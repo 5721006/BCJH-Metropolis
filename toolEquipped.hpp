@@ -20,6 +20,12 @@ void toolEquipped(Chef *chef) {
         skill->flavorBuff.tasty += 12; // 鲜售价+12%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
+    if (chef->name == "泡泡") {    // 烤官架
+        skill->ability.stirfry += 75; // 炒技法+75
+        skill->ability.steam += 75; // 蒸技法+75
+        skill->materialBuff.fish += 15; // 水产售价+15%
+        chef->tool = NO_TOOL;          // 不允许装备其他厨具
+    }
     if (chef->name == "玄一") {    // 水晶透明菜罩
         skill->ability.fry += 150; // 炸技法+150
         skill->abilityBuff.stirfry += 20; // 炒类售价+20%
