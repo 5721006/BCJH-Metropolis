@@ -7,10 +7,6 @@ void toolEquipped(Chef *chef) {
 
     auto skill = &chef->skill;
 
-    if (chef->name == "凯丽") {    // 鎏金之锋
-        skill->ability.knife += 150; // 切技法+150
-        chef->tool = NO_TOOL;          // 不允许装备其他厨具
-    }
     if (chef->name == "宋书汐汐") {    // 凤尾扫把
         skill->materialBuff.vegetable += 20; // 蔬菜售价+20%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
@@ -140,7 +136,8 @@ void toolEquipped(Chef *chef) {
         skill->ability.add(40);
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
-    if (chef->name == "盐如玉") { 
+    if (chef->name == "盐如玉") {    // 传世秘籍
+        skill->ability.add(40);
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "麦田姬") {  
