@@ -1,4 +1,4 @@
-#ifndef CONFIG_HPP 
+ #ifndef CONFIG_HPP 
  #define CONFIG_HPP 
 
  #define NUM_GUESTS 2 
