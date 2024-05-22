@@ -3,6 +3,7 @@
 #include "../config.hpp"
 #include "banquetRule.hpp"
 #include "exception.hpp"
+#include "activityRule.hpp"
 
 namespace r0 {
 States randomRecipe(States &, CList *, RList *, CRPairs *);
