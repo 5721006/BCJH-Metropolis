@@ -3,7 +3,7 @@ name: C/C++ CI
 on:
   push:
     branches:
-    - "main"
+    - "蓝采和12-铁拐李30"
     paths:
     - "data/userData.json"
   workflow_dispatch:
