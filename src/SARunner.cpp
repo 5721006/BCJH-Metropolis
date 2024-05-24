@@ -9,7 +9,6 @@
 #include <random>
 #include <fstream>
 #include "exception.hpp"
-// #include "activityRule.hpp"
 #include <limits.h>
 SARunner::SARunner(CList *chefList, RList *recipeList, CRPairs *chefRecipePairs,
                    int stepMax, int tMax, int tMin, e::GetEnergy getEnergyFunc,
@@ -26,10 +25,6 @@ SARunner::SARunner(CList *chefList, RList *recipeList, CRPairs *chefRecipePairs,
     this->history = new History[stepMax];
     this->getEnergyFunc = getEnergyFunc;
 #ifdef SEARCH_TARGET_SCORE
-    if (MODE != 2) {
-        std::cout << "config.hpp中改了不该改的东西，请改回来" << std::endl;
-        exit(1);
-    }
     this->targetScore = SEARCH_TARGET_SCORE;
 #else
     this->targetScore = INT_MAX;
