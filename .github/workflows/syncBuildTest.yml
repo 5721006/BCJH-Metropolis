@@ -5,7 +5,7 @@ on:
     branches:
     - "main"
     paths:
-    - "data/userData.json"
+    - "config.hpp"
   workflow_dispatch:
 
 jobs:
