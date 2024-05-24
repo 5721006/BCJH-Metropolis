@@ -3,7 +3,6 @@
 #include "../config.hpp"
 #include "banquetRule.hpp"
 #include "exception.hpp"
-#include "activityRule.hpp"
 
 namespace r0 {
 States randomRecipe(States &, CList *, RList *, CRPairs *);
@@ -172,99 +171,60 @@ int e0::sumPrice(States s, CList *chefList, RList *recipeList,
             }
         }
     }
-    if (MODE == 1) {
-        BanquetRule rule[NUM_CHEFS * DISH_PER_CHEF];
-        int bestFull[NUM_GUESTS];
-        banquetRule(rule, s, bestFull);
-        BanquetInfo bi[NUM_CHEFS * DISH_PER_CHEF];
-        int totalScore = 0;
-        int totalFull = 0;
-        int scoreCache = 0;
-        int fullCache = 0;
-        int ans = 0;
-        int d = 0;
-        int d2 = 0;
-        for (int g = 0; g < NUM_GUESTS; g++) {
-            d = DISH_PER_CHEF * CHEFS_PER_GUEST * g;
-            d2 = CHEFS_PER_GUEST * g;
-            totalScore = 0;
-            totalFull = 0;
-            scoreCache = 0;
-            fullCache = 0;
-            for (int i = 0; i < 9; i++) {
-                if ((log & 0x10) && i % 3 == 0) {
-                std::cout << "VERBOSE************" << std::endl;
-                s.chef[d2 + i / 3]->print();
-                std::cout << "************" << std::endl;
-                }
-                bi[d + i] = getPrice(s.chef[d2 + i / 3], s.recipe[d + i], rule[d + i], (log & 0x10));
-                totalFull += bi[d + i].full;
-                totalScore += bi[d + i].price;
-                scoreCache += bi[d + i].price;
-                fullCache += bi[d + i].full;
-                if ((log & 0x1) && i % 3 == 2) {
-                    std::cout << "厨师：" << s.chef[d2 + i / 3]->name << " -> "
+    BanquetRule rule[NUM_CHEFS * DISH_PER_CHEF];
+    int bestFull[NUM_GUESTS];
+    banquetRule(rule, s, bestFull);
+    BanquetInfo bi[NUM_CHEFS * DISH_PER_CHEF];
+    int totalScore = 0;
+    int totalFull = 0;
+    int scoreCache = 0;
+    int fullCache = 0;
+    int ans = 0;
+    int d = 0;
+    int d2 = 0;
+    for (int g = 0; g < NUM_GUESTS; g++) {
+        d = DISH_PER_CHEF * CHEFS_PER_GUEST * g;
+        d2 = CHEFS_PER_GUEST * g;
+        totalScore = 0;
+        totalFull = 0;
+        scoreCache = 0;
+        fullCache = 0;
+        for (int i = 0; i < 9; i++) {
+            if ((log & 0x10) && i % 3 == 0) {
+            std::cout << "VERBOSE************" << std::endl;
+            s.chef[d2 + i / 3]->print();
+            std::cout << "************" << std::endl;
+            }
+            bi[d + i] = getPrice(s.chef[d2 + i / 3], s.recipe[d + i], rule[d + i], (log & 0x10));
+            totalFull += bi[d + i].full;
+            totalScore += bi[d + i].price;
+            scoreCache += bi[d + i].price;
+            fullCache += bi[d + i].full;
+            if ((log & 0x1) && i % 3 == 2) {
+                std::cout << "厨师：" << s.chef[d2 + i / 3]->name << " -> "
                             << fullCache << " / " << scoreCache << std::endl;
-                    scoreCache = 0;
-                    fullCache = 0;
-                    std::cout << "菜谱：" << s.recipe[d + i - 2]->name << "；"
+                scoreCache = 0;
+                fullCache = 0;
+                std::cout << "菜谱：" << s.recipe[d + i - 2]->name << "；"
                             << s.recipe[d + i - 1]->name << "；" << s.recipe[d + i]->name
                             << std::endl;
-                }
-            } 
-            switch (totalFull - bestFull[g]) {
-            case 0:
-                ans += std::ceil(totalScore * 1.3);
-                break;
-            default:
-                int delta = std::abs(totalFull - bestFull[g]);
-                ans += std::ceil(totalScore * (1 - 0.05 * delta));
-            }           
-        }
-        return ans;
-    } else if (MODE == 2 || MODE == 0) {
-        ActivityBuff activityBuff;
-        auto p = &activityBuff;
-        activityRule(p);
-        if (MODE == 0)
-            p = NULL;
-        int energy = 0;
-        int r = 0;
-        for (int i = 0; i < NUM_CHEFS; i++) {
-            if ((log & 0x10)) {
-                std::cout << "VERBOSE************" << std::endl;
-                s.chef[i]->print();
-                std::cout << "************" << std::endl;
             }
-            int scoreCache = 0;
-            if (log & 0x1)
-                std::cout << "厨师：" << s.chef[i]->name << std::endl
-                          << "菜谱：";
-            for (int j = 0; j < DISH_PER_CHEF; j++) {
-                if (log & 0x1)
-                    std::cout << s.recipe[r]->name << "；";
-                scoreCache +=
-                    getPrice(*s.chef[i], *s.recipe[r++], p, (log & 0x10));
-            }
-            energy += scoreCache;
-            if (log & 0x1)
-                std::cout << " -> " << scoreCache << std::endl;
-        }
-
-        return energy;
-    } else {
-        std::cout
-            << "config.hpp中MODE设置错误。0为正常营业，1为宴会，2为限时任务"
-            << std::endl;
-        exit(1);
+        } 
+        switch (totalFull - bestFull[g]) {
+        case 0:
+            ans += std::ceil(totalScore * 1.3);
+            break;
+        default:
+            int delta = std::abs(totalFull - bestFull[g]);
+            ans += std::ceil(totalScore * (1 - 0.05 * delta));
+        }           
     }
+    return ans;
 }
 States r::randomRecipe(States s, CList *chefList, RList *recipeList,
                        CRPairs *chefRecipePairs) {
     double r = (double)rand() / RAND_MAX;
     double p_randomRecipe = 1;
-    if (MODE == 1)
-        p_randomRecipe = 0.9;
     if (r > p_randomRecipe) {
         return r0::swapRecipe(s, chefList, recipeList, chefRecipePairs);
     } else {
@@ -275,8 +235,6 @@ States r::randomChef(States s, CList *chefList, RList *recipeList,
                      CRPairs *chefRecipePairs) {
     double r = (double)rand() / RAND_MAX;
     double p_randomChef = 0.9;
-    if (MODE == 1)
-        p_randomChef = 0.85;
     if (r < 0.1) {
         return r0::swapChefTool(s, chefList, recipeList, chefRecipePairs);
     } else if (r >= 1 - p_randomChef) {
