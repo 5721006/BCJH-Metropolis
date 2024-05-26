@@ -55,7 +55,7 @@ int getPrice(Chef &chef, Recipe &recipe, ActivityBuff *activityBuff,
     int buff = gradebuff + skillBuff +
                (chef.coinBuffOn ? chef.skill.coinBuff : 0) + activityBuffValue;
     // std::cout << buff << std::endl;
-    double bonus = 1.0 + buff / 100.0;
+    double bonus = 1.05 + buff / 100.0;
     // std::cout << bonus << std::endl;
     int singlePrice = std::ceil(recipe.price * bonus);
     // std::cout << singlePrice << std::endl;
