@@ -129,11 +129,12 @@ BanquetInfo getPrice(Chef *chef, Recipe *recipe, BanquetRule r, bool verbose) {
         recipe->print();
         std::cout << "Grade: " << grade << std::endl;
         std::cout << "Skill: " << skillBuff << "% ( = 味道"
-                  << recipe->flavor * chef->skill.flavorBuff << " + 技法"
-                  << recipe->cookAbility * chef->skill.abilityBuff << " + 食材"
-                  << recipe->materialCategories * chef->skill.materialBuff
-                  << " + 修炼" << rb.dishBuff << " + 金币"
-                  << (chef->coinBuffOn ? chef->skill.coinBuff : 0) << ")"
+                  << recipe->flavor * chef->skill.flavorBuff 
+                  << " + 技法"<< recipe->cookAbility * chef->skill.abilityBuff 
+                  << " + 食材"<< recipe->materialCategories * chef->skill.materialBuff
+                  << " + 修炼" << rb.dishBuff
+                  << " + 修炼" << recipe->rarity * chef->skill.rarityBuff
+                  << " + 金币"<< (chef->coinBuffOn ? chef->skill.coinBuff : 0) << ")"
                   << std::endl;
         std::cout << "Intention: (基础+" << rule.baseRule.directAdd << "，+"
                   << intentionBaseBuff << "%；售价+" << intentionAddBuff
