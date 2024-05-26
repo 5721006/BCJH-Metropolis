@@ -5,7 +5,7 @@ on:
     branches:
     - "main"
     paths:
-    - "config.hpp"
+    - "src/Calculator.cpp"
   workflow_dispatch:
 
 jobs:
