@@ -55,7 +55,7 @@ int getPrice(Chef &chef, Recipe &recipe, ActivityBuff *activityBuff,
     int buff = gradebuff + skillBuff +
                (chef.coinBuffOn ? chef.skill.coinBuff : 0) + activityBuffValue;
     // std::cout << buff << std::endl;
-    double bonus = 1.05 + buff / 100.0;
+    double bonus = 1.0 + buff / 100.0;
     // std::cout << bonus << std::endl;
     int singlePrice = std::ceil(recipe.price * bonus);
     // std::cout << singlePrice << std::endl;
@@ -116,11 +116,10 @@ BanquetInfo getPrice(Chef *chef, Recipe *recipe, BanquetRule r, bool verbose) {
     int skillBuff = recipe->flavor * chef->skill.flavorBuff +
                     recipe->cookAbility * chef->skill.abilityBuff +
                     recipe->materialCategories * chef->skill.materialBuff +
-                    (rb.dishBuff + recipe->rarity * chef>skill.rarityBuff) +
-                    (chef->coinBuffOn ? chef->skill.coinBuff : 0);
+                    rb.dishBuff + (chef->coinBuffOn ? chef->skill.coinBuff : 0);
     int buff = gradebuff + skillBuff + intentionAddBuff;
     int singlePrice =
-        std::ceil((ceil(recipe->price * 1.05) + rule.baseRule.directAdd) *
+        std::ceil((ceil(recipe->price * 1.05 )+ rule.baseRule.directAdd) *
                   (1.0 + intentionBaseBuff / 100.0) * (1.0 + buff / 100.0));
     // std::cout << singlePrice << std::endl;
     int totalPrice = singlePrice * rb.dishNum;
@@ -129,12 +128,11 @@ BanquetInfo getPrice(Chef *chef, Recipe *recipe, BanquetRule r, bool verbose) {
         recipe->print();
         std::cout << "Grade: " << grade << std::endl;
         std::cout << "Skill: " << skillBuff << "% ( = 味道"
-                  << recipe->flavor * chef->skill.flavorBuff 
-                  << " + 技法"<< recipe->cookAbility * chef->skill.abilityBuff 
-                  << " + 食材"<< recipe->materialCategories * chef->skill.materialBuff
-                  << " + 修炼" << rb.dishBuff
-                  << " + 修炼" << recipe->rarity * chef->skill.rarityBuff
-                  << " + 金币"<< (chef->coinBuffOn ? chef->skill.coinBuff : 0) << ")"
+                  << recipe->flavor * chef->skill.flavorBuff << " + 技法"
+                  << recipe->cookAbility * chef->skill.abilityBuff << " + 食材"
+                  << recipe->materialCategories * chef->skill.materialBuff
+                  << " + 修炼" << rb.dishBuff << " + 金币"
+                  << (chef->coinBuffOn ? chef->skill.coinBuff : 0) << ")"
                   << std::endl;
         std::cout << "Intention: (基础+" << rule.baseRule.directAdd << "，+"
                   << intentionBaseBuff << "%；售价+" << intentionAddBuff
