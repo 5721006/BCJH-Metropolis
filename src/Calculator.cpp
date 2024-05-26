@@ -116,7 +116,7 @@ BanquetInfo getPrice(Chef *chef, Recipe *recipe, BanquetRule r, bool verbose) {
     int skillBuff = recipe->flavor * chef->skill.flavorBuff +
                     recipe->cookAbility * chef->skill.abilityBuff +
                     recipe->materialCategories * chef->skill.materialBuff +
-                    (rb.dishBuff + skill.rarityBuff[recipe->rarity]) +
+                    (rb.dishBuff + recipe->rarity * chef>skill.rarityBuff) +
                     (chef->coinBuffOn ? chef->skill.coinBuff : 0);
     int buff = gradebuff + skillBuff + intentionAddBuff;
     int singlePrice =
