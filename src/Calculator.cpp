@@ -119,7 +119,7 @@ BanquetInfo getPrice(Chef *chef, Recipe *recipe, BanquetRule r, bool verbose) {
                     rb.dishBuff + (chef->coinBuffOn ? chef->skill.coinBuff : 0);
     int buff = gradebuff + skillBuff + intentionAddBuff;
     int singlePrice =
-        std::ceil((ceil(recipe->price * 1.05 )+ rule.baseRule.directAdd) *
+        std::ceil((ceil(recipe->price * 1.05 ) + rule.baseRule.directAdd) *
                   (1.0 + intentionBaseBuff / 100.0) * (1.0 + buff / 100.0));
     // std::cout << singlePrice << std::endl;
     int totalPrice = singlePrice * rb.dishNum;
