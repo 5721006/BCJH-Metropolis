@@ -5,7 +5,7 @@ on:
     branches:
     - "main"
     paths:
-    - "src/Calculator.cpp"
+    - "date/userDate.json"
   workflow_dispatch:
 
 jobs:
