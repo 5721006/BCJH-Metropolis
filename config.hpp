@@ -17,7 +17,7 @@
  #define AVOID_CHEF_3 false 
   
  #define T_MAX_CHEF TARGET_SCORE_APPROXIMATE / 100 // 选择厨师时的初始温度 
- #define T_MAX_RECIPE                                                           \
+ #define T_MAX_RECIPE                                     \
      TARGET_SCORE_APPROXIMATE / 300 // 对于每一组厨师，选择菜谱时的初始温度 
   
  // ************************************* // 
