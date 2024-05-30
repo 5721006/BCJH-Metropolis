@@ -6,6 +6,7 @@ on:
     - "钟离权40-玉贵人19"
     paths:
     - "data/userData.json"
+    - "config.hpp"
   workflow_dispatch:
 
 jobs:
