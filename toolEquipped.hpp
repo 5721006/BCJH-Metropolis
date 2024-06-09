@@ -39,6 +39,7 @@ void toolEquipped(Chef *chef) {
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "橙风") {    // 嘻嘻蜡烛
+        skill->ability.bake += 68; // 烤技法+13%
         skill->abilityBuff.bake += 30; // 烤类售价+30%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
