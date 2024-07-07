@@ -7,28 +7,33 @@ void toolEquipped(Chef *chef) {
 
     auto skill = &chef->skill;
 
-    if (chef->name == "东华") {    // 金塞醒酒壶+月异陨
+    if (chef->name == "执笔人") {    // 雾驾陨*3
+        skill->abilityBuff.steam += 36; // 蒸类售价+36%
+        chef->tool = NO_TOOL;          // 不允许装备其他厨具
+    }
+    if (chef->name == "东华") {    // 金塞醒酒壶+月异陨+席丰玉
         skill->abilityBuff.boil += 30; // 煮类售价+30%
         skill->flavorBuff.tasty += 12; // 鲜售价+12%
         skill->flavorBuff.sour += 12; // 酸售价+12%
+        skill->coinBuff += 10; // 1-4菜谱上限+5（伪）
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "乐乐妹") {    // 霞姬霸捣药罐
         skill->ability.stirfry += 12;
         skill->ability.boil += 76;
-        skill->ability.knife += 110;
-        skill->ability.fry += 11;
-        skill->ability.bake += 42;
+        skill->ability.knife += 111;
+        skill->ability.fry += 13;
+        skill->ability.bake += 44;
         skill->ability.steam += 28;
         skill->coinBuff += 10; // 菜谱基础售价+10%（伪）
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "拉琪") {    // 霞姬霸捣药罐
-        skill->ability.stirfry += 11;
-        skill->ability.boil += 43;
-        skill->ability.knife += 112;
-        skill->ability.fry +=11;
-        skill->ability.bake += 26;
+        skill->ability.stirfry += 12;
+        skill->ability.boil += 48;
+        skill->ability.knife += 113;
+        skill->ability.fry +=13;
+        skill->ability.bake += 27;
         skill->ability.steam += 62;
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
@@ -38,8 +43,8 @@ void toolEquipped(Chef *chef) {
         skill->ability.bake += -50;
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
-    if (chef->name == "橙风") {    // 嘻嘻蜡烛
-        skill->ability.bake += 62; // 烤技法+13%
+    if (chef->name == "橙风") {    // 嘻嘻蜡烛+焦焦陨
+        skill->ability.bake += 62; //烤技法+13%
         skill->abilityBuff.bake += 30; // 烤类售价+30%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
@@ -91,15 +96,15 @@ void toolEquipped(Chef *chef) {
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
     if (chef->name == "玄离") {    // 霞姬霸捣药罐
-        skill->ability.stirfry += 36;
-        skill->ability.boil += 84;
+        skill->ability.stirfry += 37;
+        skill->ability.boil += 85;
         skill->ability.knife += 61;
-        skill->ability.fry += 11;
-        skill->ability.bake += 9;
-        skill->ability.steam += 23;
+        skill->ability.fry += 13;
+        skill->ability.bake += 10;
+        skill->ability.steam += 24;
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
-    if (chef->name == "莫邪") {    // 银制水壶
+    if (chef->name == "莫邪") {    // 云驰陨
         skill->ability.boil += 43; // 蒸技法+11%
         chef->tool = NO_TOOL;          // 不允许装备其他厨具
     }
