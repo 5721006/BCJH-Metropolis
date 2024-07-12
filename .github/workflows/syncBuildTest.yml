@@ -7,6 +7,7 @@ on:
     paths:
     - "data/userData.json"
     - "config.hpp"
+    - "src/banquetRule.hpp"
   workflow_dispatch:
 
 jobs:
